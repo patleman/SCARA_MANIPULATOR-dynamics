@@ -80,7 +80,9 @@ Derivation of SCARA Manipulator's dynamic Equation using first principles from E
 5. Inverse Dynamic Controller:
    
  <img src='control.jpeg'>
-### Result
+ 
+ ### Result
+
   3d trajectory generated with trapezoidal velocity profile:
   
    <img src='3d_part1.jpg'>
