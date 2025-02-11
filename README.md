@@ -1,5 +1,6 @@
-### Problem Statement:
+
 <img src='scara_animation.gif'>
+### Problem Statement:
 1. **Trajectory Generation in Operational Space with Trapezoidal Velocity Profile**:  
       Generate a trajectory for a robotic arm in its operational space over 4 seconds with a trapezoidal velocity profile. The trajectory should pass through the following waypoints:  
       - **p0 = [0, -0.80, 0]** at **t0 = 0.0**  
