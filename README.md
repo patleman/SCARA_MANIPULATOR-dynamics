@@ -1,4 +1,3 @@
-# SCARA_MANIPULATOR-dynamics
 ### Problem Statement:
 <img src='/images/scara_animation.gif'>
 1. **Trajectory Generation in Operational Space with Trapezoidal Velocity Profile**:  
@@ -47,15 +46,15 @@ Derivation of SCARA Manipulator's dynamic Equation using first principles from E
    \end{cases}
    $$
    
-   where $$t_c = \frac{t_f}{2} - \frac{1}{2} \sqrt{\frac{t_f^2 \ddot{q_c} - 4(q_f - q_i)}{\ddot{q_c}}}$$, and $$\ddot{q_c}$$ must be greater than or     equal to $$\frac{4(q_f - q_i)}{t_f^2}$$. Using above equations, trajectory in 3D space is generated.
+   where $$t_c = \frac{t_f}{2} - \frac{1}{2} \sqrt{\frac{t_f^2 \ddot{q_c} - 4(q_f - q_i)}{\ddot{q_c}}}$$, and $$\ddot{q_c}$$ must be greater than or     equal to $$\frac{4(q_f - q_i)}{t_f^2}$$.      Using above equations, trajectory in 3D space is generated.
 
-2. The dynamics of the SCARA manipulator are derived using the [Lagrangian equation](https://github.com/patleman/SCARA_MANIPULATOR-dynamics)(Derivation of B and N matrices inside file name: SCARA_Dynamics_Derive.mlx). At the end, the following equation is derived:
+2. The dynamics of the SCARA manipulator are derived using the [Lagrangian equation](https://github.com/patleman/SCARA_MANIPULATOR-dynamics)(Derivation of B and N matrices inside file name:          SCARA_Dynamics_Derive.mlx). At the end, the following equation is derived:
 
    $$
    B(q)\ddot{q} + n(q,\dot{q}) = \tau
    $$
    
-   where $$n(q,\dot{q}) = c(q,\dot{q})\dot{q} + F\dot{q} + g(q), B(q)$$ is the 4x4 matrix, and $$C(q)$$ is also a 4x4 matrix. The $$F_v$$ matrix         corresponds to the viscous force matrix for the motors, and $$g(q)$$ represents the potential energy contribution towards the dynamic equation of     the SCARA manipulator.
+   where $$n(q,\dot{q}) = c(q,\dot{q})\dot{q} + F\dot{q} + g(q), B(q)$$ is the 4x4 matrix, and $$C(q)$$ is also a 4x4 matrix. The $$F_v$$ matrix         corresponds to the viscous force matrix       for the motors, and $$g(q)$$ represents the potential energy contribution towards the dynamic equation of     the SCARA manipulator.
    
    The model-referenced control law for is defined as follows:
    
@@ -74,24 +73,33 @@ Derivation of SCARA Manipulator's dynamic Equation using first principles from E
    Input values for the desired joint positions, velocities, and accelerations are derived from the Second Order Inverse Kinematic Algorithm.
 
 3. Second Order Inverse Kinematics:
+   
  <img src='inverse_kinematics.jpeg'>
-4. Inverse Dynamic Controller:
+ 
+5. Inverse Dynamic Controller:
+   
  <img src='control.jpeg'>
-
- 3d trajectory generated with trapezoidal velocity profile:
+### Result
+  3d trajectory generated with trapezoidal velocity profile:
+  
    <img src='3d_part1.jpg'>
    
    X component:   
+   
    <img src='X_trajectory.jpg'>
    
    Y component:
+   
    <img src='Y_Trajectory.jpg'>
    
    Z component:   
+   
    <img src='Z_trajectory.jpg'>
    
    Generated joint trajectories: 
+   
    <img src='Joint_position_part2.jpg'>
 
    Visualization: 
-   <img src='/images/scara_animation.gif'>
+   
+   <img src='scara_animation.gif'>
