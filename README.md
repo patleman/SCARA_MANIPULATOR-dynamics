@@ -25,48 +25,38 @@ Derivation of SCARA Manipulator's dynamic Equation using first principles from E
    law to the path defined by the above equation. As per the question, $$S_j$$ should be a trapezoidal velocity profile. Also, it is required to have 
    an anticipation time before the start of each new segment. Considering all these required features, $$S_j$$ is defined as follows:
    
-   $$
-   S_j(t) = 
+   $$S_j(t) = 
    \begin{cases} 
    0 & \quad 0 \leq t \leq t_{j-1} - \Delta t_{j} \\
    S_j'( t + \Delta t_{j}) & \quad t_{j-1} - \Delta t_{j} \leq t \leq t_{j} - \Delta t_{j} \\
    d & \quad t_{j} - \Delta t_{j} \leq t \leq t_{f} - \Delta t_{N}
-   \end{cases}
-   $$
+   \end{cases}$$
    
    where $$\Delta t_{j} = \Delta t_{j-1} + \delta t_{j}$$ is the advance time at which the $$j$$-th segment starts and $$\delta t_{j}$$ is the 
    anticipation time given as 0.2 seconds, with $$\Delta t_{0} = 0$$. Also, the trapezoidal profile for $$S_j$$ is defined as follows:
    
-   $$
-   S_j(t) = 
+   $$S_j(t) = 
    \begin{cases} 
    S_i + 0.5 \times \ddot{q_c} t^2 & \quad 0 \leq t \leq t_c \\
    S_i + \ddot{q_c} t_c \left( t - \frac{t_c}{2} \right) & \quad t_c \leq t \leq t_f - \Delta t_c \\
    S_f - \frac{1}{2} \ddot{q_c} (t_f - t)^2 & \quad t_f - t_c \leq t \leq t_f
-   \end{cases}
-   $$
+   \end{cases}$$
    
    where $$t_c = \frac{t_f}{2} - \frac{1}{2} \sqrt{\frac{t_f^2 \ddot{q_c} - 4(q_f - q_i)}{\ddot{q_c}}}$$, and $$\ddot{q_c}$$ must be greater than or     equal to $$\frac{4(q_f - q_i)}{t_f^2}$$.      Using above equations, trajectory in 3D space is generated.
 
 2. The dynamics of the SCARA manipulator are derived using the [Lagrangian equation](https://github.com/patleman/SCARA_MANIPULATOR-dynamics)(Derivation of B and N matrices inside file name:          SCARA_Dynamics_Derive.mlx). At the end, the following equation is derived:
 
-   $$
-   B(q)\ddot{q} + n(q,\dot{q}) = \tau
-   $$
+   $$B(q)\ddot{q} + n(q,\dot{q}) = \tau$$
    
    where $$n(q,\dot{q}) = c(q,\dot{q})\dot{q} + F\dot{q} + g(q), B(q)$$ is the 4x4 matrix, and $$C(q)$$ is also a 4x4 matrix. The $$F_v$$ matrix         corresponds to the viscous force matrix       for the motors, and $$g(q)$$ represents the potential energy contribution towards the dynamic equation of     the SCARA manipulator.
    
    The model-referenced control law for is defined as follows:
    
-   $$
-   u = B(q)y + n(q,\dot{q})
-   $$
+   $$u = B(q)y + n(q,\dot{q})$$
    
    where
    
-   $$
-   y = K_d \ddot{\widetilde{q}} + K_p \widetilde{q} + \ddot{q}_d
-   $$
+   $$y = K_d \ddot{\widetilde{q}} + K_p \widetilde{q} + \ddot{q}_d$$
    
    Here, $$K_d$$ and $$K_p$$ are positive definite diagonal matrices to ensure stability. $$\widetilde{q} is the error between the desired and actual    joint values.
    
