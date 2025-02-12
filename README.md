@@ -19,9 +19,7 @@ Derivation of SCARA Manipulator's dynamic Equation using first principles from E
 
 1. Code for trapezoidal velocity profile based 3d-trajectory generation, Second order inverse kinematics and derivations for Euler Lagrange dynamic equation can be found [here](https://github.com/patleman/SCARA_MANIPULATOR-dynamics).There are five waypoints through which the trajectory of the end effector needs to be generated. Considering $$P_e$$ as the position vector of the end effector of the robot and $$P_0, P_1, P_2, P_3 $$, and $$P_4$$ as the position vectors of the waypoints, the following expression can be written:
 
-   $$
-   P_e = P_0 + \sum_{j=1}^{4} \frac{S_j}{\left\| P_j - P_{j-1} \right\|} (P_j - P_{j-1})
-   $$
+   $$P_e = P_0 + \sum_{j=1}^{4} \frac{S_j}{\left\| P_j - P_{j-1} \right\|} (P_j - P_{j-1})$$
 
    where $$j = 1, 2, 3, 4$$ refers to the $$j-th$$ segment between $$P_j$$ and $$P_{j-1}$$ points. The variable $$S_j$$ is used to provide the timing 
    law to the path defined by the above equation. As per the question, $$S_j$$ should be a trapezoidal velocity profile. Also, it is required to have 
